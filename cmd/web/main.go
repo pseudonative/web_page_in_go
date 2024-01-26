@@ -5,6 +5,8 @@ import (
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/pseudonative/web_page_in_go/pkg/handlers"
 )
 
 const portNumber = ":8080"
@@ -17,8 +19,8 @@ func main() {
 	}
 	fmt.Println("Current working directory: ", wd)
 
-	http.HandleFunc("/", Home)
-	http.HandleFunc("/about", About)
+	http.HandleFunc("/", handlers.Home)
+	http.HandleFunc("/about", handlers.About)
 	fmt.Printf("starting application on port %s", portNumber)
 	http.ListenAndServe(portNumber, nil)
 }
